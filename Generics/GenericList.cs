@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    public class GenericList<T> where T:IComparable<T>
+    public class GenericList<T> where T:IComparable<T>,IEquatable<T>,IFormattable
     {
 
         private int index = 0;
@@ -127,7 +127,7 @@ namespace Generics
             return min;
         }
 
-        public T GetByValue(T value)
+        public string GetByValue(T value)
         {
             T ret = default(T);
             for (int i = 0; i < size; i++)
@@ -137,7 +137,7 @@ namespace Generics
                     ret = arr[i];
                 }
             }
-            return ret;
+            return ret.ToString();
         }
     }
 }
